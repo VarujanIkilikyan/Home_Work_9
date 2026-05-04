@@ -1,0 +1,23 @@
+[
+  {
+    "title": "My First Post",
+    "content": "This is the content of my first post.",
+    "userId": "3f015896-6b76-4b0b-b36b-6e18918cd156",
+    "id": "1e8db9e3-609d-4efd-95a7-3f109ca0f6a8",
+    "createdAt": "2026-05-04T10:03:54.115Z"
+  },
+  {
+    "title": "My First Post3",
+    "content": "This is the content of my first post3.",
+    "userId": "3f015896-6b76-4b0b-b36b-6e18918cd156",
+    "id": "b43eb355-66cb-417f-83ee-5c930595a5a1",
+    "createdAt": "2026-05-04T12:50:36.341Z"
+  },
+  {
+    "title": "My First Post4",
+    "content": "This is the content of my first post4.",
+    "userId": "3f015896-6b76-4b0b-b36b-6e18918cd156",
+    "id": "18b28d27-2b0c-45fc-91c5-78338a36ae31",
+    "createdAt": "2026-05-04T12:50:48.524Z"
+  }
+]
