@@ -1,19 +1,5 @@
 [
   {
-    "title": "My First Post1",
-    "content": "This is the content of my first post1.",
-    "userId": "05c5b40d-d67b-4ff1-af55-2d2191cae17d",
-    "id": "28eae570-5328-4459-8d7f-6169bca5b8ff",
-    "createdAt": "2026-05-08T06:40:01.798Z"
-  },
-  {
-    "title": "My First Post2",
-    "content": "This is the content of my first post2.",
-    "userId": "05c5b40d-d67b-4ff1-af55-2d2191cae17d",
-    "id": "90753b36-65f7-4c77-acca-f42b7a9cf19c",
-    "createdAt": "2026-05-08T06:40:25.614Z"
-  },
-  {
     "title": "My First Post3",
     "content": "This is the content of my first post2.",
     "userId": "7b1be175-fe01-48af-b214-c751fad3a16c",
@@ -26,5 +12,13 @@
     "userId": "7b1be175-fe01-48af-b214-c751fad3a16c",
     "id": "70dee5aa-233c-4eef-8995-e85d00ed86eb",
     "createdAt": "2026-05-08T13:13:34.194Z"
+  },
+  {
+    "title": "fdddddd",
+    "content": "dffffffff",
+    "userId": "05c5b40d-d67b-4ff1-af55-2d2191cae17d",
+    "id": "90753b36-65f7-4c77-acca-f42b7a9cf19c",
+    "createdAt": "2026-05-08T06:40:25.614Z",
+    "updatedAt": "2026-05-08T14:06:02.550Z"
   }
 ]
