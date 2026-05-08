@@ -7,9 +7,18 @@ export default {
 
     }),
     registration: joi.object({
-        name: joi.string().required(),
-        email: joi.string().email().required(),
-        password: joi.string().required(),
-        age: joi.number().required(),
+        name: joi.string().required().messages({
+            'string.empty': 'Имя обязательно'
+        }),
+        email: joi.string().email().required().messages({
+            'string.empty': 'Email обязателен',
+            'string.email': 'Email должен быть корректным',
+        }),
+        password: joi.string().required().messages({
+            'string.empty': 'Пароль обязателен',
+        }),
+        age: joi.number().required().messages({
+            'number.base': 'Возраст обязателен',
+        }),
     })
 }

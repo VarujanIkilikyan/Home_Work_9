@@ -13,8 +13,10 @@ export default {
             if(await usersModel.checkMemberByEmail(email)) {
 
                 throw  new HttpErrors(422,{
+                    message: 'Validation error',
                     errors:{
-                    message: 'Email already exists',}
+                        email: 'почта уже сушествует',
+                    }
                 })
             }
             const user = await usersModel.createUser({
