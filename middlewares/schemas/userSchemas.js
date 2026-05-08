@@ -2,8 +2,13 @@ import joi from 'joi';
 
 export default {
     login: joi.object({
-        email: joi.string().required(),
-        password: joi.string().min(4).max(32).required(),
+        email: joi.string().required().messages({
+            'string.empty': 'Email обязателен',
+            'string.email': 'Email должен быть корректным',
+        }),
+        password: joi.string().min(4).max(32).required().messages({
+            'string.empty': 'Пароль обязателен',
+        }),
 
     }),
     registration: joi.object({

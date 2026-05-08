@@ -47,7 +47,8 @@ export default {
             if(!user || (user.password !== usersModel.hashPassword(password))) {
                 throw new HttpErrors(401, {
                     errors:{
-                        message: 'Wrong email address or password',
+                        email: 'неправильный email или пароль',
+                        password: 'неправильный email или пароль',
                     }
                 })
             }

@@ -12,6 +12,7 @@ router.post('/registration',validator(userSchemas.registration,'body'), controll
 router.get('/registration', await views.viewsRender('registration'));
 
 router.post('/login',validator(userSchemas.login,'body'), controller.login);
+router.get('/login', await views.viewsRender('login'));
 
 router.get('/profile',authorization, controller.profile);
 export default router;
