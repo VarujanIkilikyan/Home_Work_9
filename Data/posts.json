@@ -12,5 +12,19 @@
     "userId": "05c5b40d-d67b-4ff1-af55-2d2191cae17d",
     "id": "90753b36-65f7-4c77-acca-f42b7a9cf19c",
     "createdAt": "2026-05-08T06:40:25.614Z"
+  },
+  {
+    "title": "My First Post3",
+    "content": "This is the content of my first post2.",
+    "userId": "7b1be175-fe01-48af-b214-c751fad3a16c",
+    "id": "467f1d5c-82f3-40b1-a940-fea7b39c1f2b",
+    "createdAt": "2026-05-08T12:58:42.456Z"
+  },
+  {
+    "title": "asdd",
+    "content": "sadds",
+    "userId": "7b1be175-fe01-48af-b214-c751fad3a16c",
+    "id": "70dee5aa-233c-4eef-8995-e85d00ed86eb",
+    "createdAt": "2026-05-08T13:13:34.194Z"
   }
 ]

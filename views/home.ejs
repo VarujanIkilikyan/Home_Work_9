@@ -1,14 +1,251 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HOMEEE</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fc;
+        }
+
+        /* Верхний блок */
+        .header {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .image-placeholder {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            border: 3px solid white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #888;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .user-info h2 {
+            font-size: 28px;
+        }
+
+        .user-info p {
+            font-size: 18px;
+            margin: 4px 0;
+        }
+
+        /* Кнопки */
+        .actions {
+            padding: 20px;
+            background: white;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Форма добавления поста (всегда видна) */
+        .add-post-form {
+            padding: 20px;
+            background: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .add-post-form label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-post-form input,
+        .add-post-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .add-post-form input[type="text"] {
+            width: 100%;
+        }
+
+        .add-post-form textarea {
+            width: 100%;
+            height: 300px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .add-post-form button {
+            background-color: #28a745;
+            align-self: flex-start;
+        }
+
+        /* Модальные инпуты */
+        .modal-inputs {
+            padding: 15px 20px;
+            background: #e9e9e9;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .modal-inputs input,
+        .modal-inputs textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal-inputs input {
+            width: 200px;
+        }
+
+        .modal-inputs textarea {
+            width: 200px;
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* Дашборд с постами */
+        .dashboard {
+            padding: 20px;
+            min-height: 60vh;
+        }
+
+        .posts-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+        }
+
+        .post-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .post-card p {
+            color: #555;
+            margin-bottom: 8px;
+            white-space: pre-wrap;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: #d32f2f;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<h1>HOMEEE</h1>
+<!-- Верхний блок -->
+<div class="header">
+    <div class="image-placeholder">👤</div>
+    <div class="user-info">
+        <h2 id="userName">Имя: не задано</h2>
+        <p id="userEmail">Email: не задан</p>
+        <p id="userId">ID: не задан</p>
+        <p id="userAge">Возраст: не задан</p>
+    </div>
+</div>
 
+<!-- Кнопки действий -->
+<div class="actions">
+    <button id="getAllBtn">Взять все посты</button>
+    <button id="getByIdBtn">Взять по ID</button>
+    <button id="updateBtn">Обновить пост</button>
+    <button id="deleteBtn">Удалить пост</button>
+</div>
+
+<!-- Форма добавления поста (всегда видна) -->
+<div class="add-post-form">
+    <label for="addTitleInput">Заголовок</label>
+    <input type="text" id="addTitleInput" placeholder="Введите заголовок поста" />
+
+    <label for="addContentInput">Содержание</label>
+    <textarea id="addContentInput" placeholder="Введите содержание поста (300×300 пикселей)"></textarea>
+
+    <button id="addPostBtn">Добавить пост</button>
+</div>
+
+<!-- Модальные инпуты -->
+<div class="modal-inputs">
+    <!-- Общее поле: ID -->
+    <input type="text" id="postIdInput" placeholder="Введите ID поста" class="hidden" />
+
+    <!-- Для обновления -->
+    <input type="text" id="updateTitleInput" placeholder="Новый заголовок" class="hidden" />
+    <textarea id="updateContentInput" placeholder="Новое содержание" class="hidden"></textarea>
+
+    <!-- Кнопка подтверждения -->
+    <button id="confirmActionBtn" class="hidden">Подтвердить</button>
+</div>
+
+<!-- Дашборд с постами -->
+<div class="dashboard">
+    <h2>Посты с сервера</h2>
+    <div id="postsContainer" class="posts-grid">
+        <!-- Посты загрузятся сюда -->
+    </div>
+    <div id="errorBox" class="error hidden"></div>
+</div>
+
+<script src="/javascripts/checkToken.js"></script>
 </body>
 </html>
