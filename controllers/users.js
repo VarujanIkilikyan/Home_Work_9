@@ -1,5 +1,6 @@
 import HttpErrors from 'http-errors';
-import usersModel, {findMemberById} from '../models/usersModel.js';
+import usersModel from '../models/usersModel.js';
+import moment from 'moment';
 
 
 export default {
@@ -49,7 +50,10 @@ export default {
                 })
             }
 
-            const token = usersModel.encrypt({userID: user.id});
+            const token = usersModel.encrypt(
+                {userID: user.id,
+                      expiresIn: moment().add(30, 'minutes').toISOString(),
+            });
             delete user.password;
             res.json({
                 token,

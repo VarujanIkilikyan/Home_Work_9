@@ -1,23 +1,16 @@
 [
   {
-    "title": "My First Post",
-    "content": "This is the content of my first post.",
-    "userId": "3f015896-6b76-4b0b-b36b-6e18918cd156",
-    "id": "1e8db9e3-609d-4efd-95a7-3f109ca0f6a8",
-    "createdAt": "2026-05-04T10:03:54.115Z"
+    "title": "My First Post1",
+    "content": "This is the content of my first post1.",
+    "userId": "05c5b40d-d67b-4ff1-af55-2d2191cae17d",
+    "id": "28eae570-5328-4459-8d7f-6169bca5b8ff",
+    "createdAt": "2026-05-08T06:40:01.798Z"
   },
   {
-    "title": "My First Post3",
-    "content": "This is the content of my first post3.",
-    "userId": "3f015896-6b76-4b0b-b36b-6e18918cd156",
-    "id": "b43eb355-66cb-417f-83ee-5c930595a5a1",
-    "createdAt": "2026-05-04T12:50:36.341Z"
-  },
-  {
-    "title": "My First Post4",
-    "content": "This is the content of my first post4.",
-    "userId": "3f015896-6b76-4b0b-b36b-6e18918cd156",
-    "id": "18b28d27-2b0c-45fc-91c5-78338a36ae31",
-    "createdAt": "2026-05-04T12:50:48.524Z"
+    "title": "My First Post2",
+    "content": "This is the content of my first post2.",
+    "userId": "05c5b40d-d67b-4ff1-af55-2d2191cae17d",
+    "id": "90753b36-65f7-4c77-acca-f42b7a9cf19c",
+    "createdAt": "2026-05-08T06:40:25.614Z"
   }
 ]

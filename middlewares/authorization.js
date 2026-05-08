@@ -1,8 +1,9 @@
 import HttpErrors from 'http-errors';
 import usersModel from '../models/usersModel.js';
-import {log} from "debug";
+import moment from 'moment';
 
-export  default (req,res,next)=>{
+
+export  default  async (req,res,next)=>{
     try {
         const token = req.headers?.authorization || null;
 
@@ -11,8 +12,14 @@ export  default (req,res,next)=>{
         }
 
         const data =usersModel.decrypt(token);
-        if (!data || !data?.userID) {
+        if (!data || !data?.userID || !data?.expiresIn) {
             next(HttpErrors(401));
+        }
+        if(await  usersModel.findMemberById(data.userID).length === 0) {
+            next(HttpErrors(401));
+        }
+        if(moment().isAfter(moment(data.expiresIn))){
+            next(HttpErrors(401),'token expired!');
         }
         req.userId = data.userID;
         next();
